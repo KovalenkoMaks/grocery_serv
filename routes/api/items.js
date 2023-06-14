@@ -1,36 +1,33 @@
 const express = require("express");
-const ctrl = require("../../controllers/contacts");
+const ctrl = require("../../controllers/items");
+
 const { tryCatchWrapper } = require("../../utils");
 const { validateBody } = require("../../middelwares");
-const schema = require("../../schemas/");
+const schema = require("../../schemas");
 const router = express.Router();
 
 router.get("/", tryCatchWrapper(ctrl.getAll));
-
-// router.get("/:contactId",
-//   // validateId,
-//   tryCatchWrapper(ctrl.getById));
 
 router.post("/",
   validateBody(schema.addSchema),
   tryCatchWrapper(ctrl.add));
 
-router.delete("/:contactId",
+router.delete("/:itemId",
   // validateId,
   tryCatchWrapper(ctrl.remove));
 
 router.put(
-  "/:contactId",
+  "/:itemId",
   // validateId,
   // validateBody(schema.updateSchema),
   tryCatchWrapper(ctrl.updateById)
 );
 
 router.patch(
-  "/:contactId/completed",
+  "/:itemId/completed",
   // validateId,
   // validateBody(schema.favoriteSchema),
-  tryCatchWrapper(ctrl.updateFavorite)
+  tryCatchWrapper(ctrl.updateCompleted)
 );
 
 module.exports = router;

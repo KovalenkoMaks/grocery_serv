@@ -1,5 +1,5 @@
 const { Schema } = require("mongoose");
-const contactSchema = new Schema(
+const itemSchema = new Schema(
   {
     value: {
       type: String,
@@ -18,4 +18,4 @@ const contactSchema = new Schema(
   { versionKey: false }
 );
 
-module.exports = contactSchema;
+module.exports = itemSchema;

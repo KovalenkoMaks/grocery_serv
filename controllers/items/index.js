@@ -3,12 +3,12 @@ const getById = require("./getById");
 const add = require("./add");
 const remove = require("./remove");
 const updateById = require("./updateById");
-const updateFavorite = require("./updateFavorite");
+const updateCompleted = require("./updateCompleted");
 module.exports = {
   getAll,
   getById,
   add,
   remove,
   updateById,
-  updateFavorite,
+  updateCompleted,
 };
