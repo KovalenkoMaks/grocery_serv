@@ -4,11 +4,11 @@ const itemSchema = new Schema(
     value: {
       type: String,
       minlength: 2,
-      required: [true, "Set name for contact"],
+      required: [true, "Set value for contact"],
     },
     quantity: {
       type: Number,
-      required: [true, "Set email for contact"],
+      required: [true, "Set quantity for contact"],
     },
     completed: {
       type: Boolean,
