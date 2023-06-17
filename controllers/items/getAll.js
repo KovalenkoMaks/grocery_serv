@@ -1,18 +1,20 @@
 const Contact = require("../../models/item.js");
 const getAll = async (req, res) => {
   const { filter } = req.params;
+  const { user } = req.query;
   let result
   switch (filter) {
     case 'completed':
-      result = await Contact.find({ completed: true });
+      result = await Contact.find({ completed: true, user: user });
+
       break;
     case 'active':
-      result = await Contact.find({ completed: false });
+      result = await Contact.find({ completed: false, user: user });
       break;
 
     default:
-      result = await Contact.find();
-
+      result = await Contact.find({ user: user });
+      console.log(result);
       break;
   }
   res.json(result);
