@@ -14,7 +14,6 @@ const getAll = async (req, res) => {
 
     default:
       result = await Contact.find({ user: user });
-      console.log(result);
       break;
   }
   res.json(result);

@@ -3,7 +3,6 @@ const itemSchema = new Schema(
   {
     value: {
       type: String,
-      minlength: 2,
       required: [true, "Set value for item"],
     },
     quantity: {

@@ -2,31 +2,27 @@ const express = require("express");
 const ctrl = require("../../controllers/items");
 
 const { tryCatchWrapper } = require("../../utils");
-const { validateBody } = require("../../middelwares");
-const schema = require("../../schemas");
+const { validateId } = require("../../middelwares");
 const router = express.Router();
 
 router.get("/:filter", tryCatchWrapper(ctrl.getAll));
 
 router.post("/",
-  validateBody(schema.addSchema),
   tryCatchWrapper(ctrl.add));
 
 router.delete("/:itemId",
-  // validateId,
+  validateId,
   tryCatchWrapper(ctrl.remove));
 
 router.put(
   "/:itemId",
-  // validateId,
-  // validateBody(schema.updateSchema),
+  validateId,
   tryCatchWrapper(ctrl.updateById)
 );
 
 router.patch(
   "/:itemId/completed",
-  // validateId,
-  // validateBody(schema.favoriteSchema),
+  validateId,
   tryCatchWrapper(ctrl.updateCompleted)
 );
 
